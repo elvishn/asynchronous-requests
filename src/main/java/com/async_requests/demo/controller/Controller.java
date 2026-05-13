@@ -20,11 +20,8 @@ public class Controller {
          return service.getInformation(ttl);
     }
 
-
-
-
     @GetMapping("/{id}")
     public String loadPulling(@PathVariable String id) {
-        return service.loadPulling(id);
+        return service.longPolling(id);
     }
 }
