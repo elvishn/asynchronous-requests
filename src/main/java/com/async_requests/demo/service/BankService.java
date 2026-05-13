@@ -54,7 +54,7 @@ public class BankService {
                         goToBankService()
                                 .subscribeOn(Schedulers.boundedElastic())
                                 .subscribe(it -> cache.policy().expireVariably().orElseThrow()
-                                        .put(id, it, Duration.ofMinutes(ttl)))
+                                        .put(id, it, Duration.ofSeconds(ttl)))
                 )
                 .thenReturn(id);
     }
